@@ -18,6 +18,10 @@ const secondExam = new Date(
 );
 
 
+// --------------------
+// CLOCK
+// --------------------
+
 const clockElement =
     document.getElementById("clock");
 
@@ -58,6 +62,10 @@ function updateClock() {
 }
 
 
+// --------------------
+// COUNTDOWN
+// --------------------
+
 function getRemaining(target) {
 
     const now = new Date();
@@ -80,31 +88,22 @@ function getRemaining(target) {
         Math.floor(difference / 1000);
 
 
-    const days =
-        Math.floor(totalSeconds / 86400);
-
-
-    const hours =
-        Math.floor(
-            (totalSeconds % 86400) / 3600
-        );
-
-
-    const minutes =
-        Math.floor(
-            (totalSeconds % 3600) / 60
-        );
-
-
-    const seconds =
-        totalSeconds % 60;
-
-
     return {
-        days,
-        hours,
-        minutes,
-        seconds
+        days:
+            Math.floor(totalSeconds / 86400),
+
+        hours:
+            Math.floor(
+                (totalSeconds % 86400) / 3600
+            ),
+
+        minutes:
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            ),
+
+        seconds:
+            totalSeconds % 60
     };
 }
 
@@ -142,6 +141,215 @@ function updateCountdown(
 }
 
 
+// --------------------
+// DIARY
+// --------------------
+
+const diaryInput =
+    document.getElementById("diaryInput");
+
+const saveDiaryButton =
+    document.getElementById("saveDiary");
+
+const saveMessage =
+    document.getElementById("saveMessage");
+
+const diaryList =
+    document.getElementById("diaryList");
+
+const diaryDate =
+    document.getElementById("diaryDate");
+
+
+function getTodayKey() {
+
+    const now = new Date();
+
+    return formatDate(now);
+}
+
+
+function loadEntries() {
+
+    const data =
+        localStorage.getItem("diaryEntries");
+
+    if (!data) {
+        return {};
+    }
+
+    try {
+        return JSON.parse(data);
+    }
+
+    catch {
+        return {};
+    }
+}
+
+
+function saveEntries(entries) {
+
+    localStorage.setItem(
+        "diaryEntries",
+        JSON.stringify(entries)
+    );
+}
+
+
+function loadTodayDiary() {
+
+    const entries = loadEntries();
+
+    const today = getTodayKey();
+
+    if (entries[today]) {
+        diaryInput.value =
+            entries[today];
+    }
+
+    else {
+        diaryInput.value = "";
+    }
+}
+
+
+function renderDiary() {
+
+    const entries = loadEntries();
+
+    diaryList.innerHTML = "";
+
+
+    const dates =
+        Object.keys(entries).sort().reverse();
+
+
+    dates.forEach(date => {
+
+        const article =
+            document.createElement("article");
+
+        article.className =
+            "diary-entry";
+
+
+        const top =
+            document.createElement("div");
+
+        top.className =
+            "entry-top";
+
+
+        const dateElement =
+            document.createElement("span");
+
+        dateElement.className =
+            "entry-date";
+
+        dateElement.textContent =
+            date;
+
+
+        const deleteButton =
+            document.createElement("button");
+
+        deleteButton.className =
+            "delete-entry";
+
+        deleteButton.textContent =
+            "DELETE";
+
+
+        deleteButton.addEventListener(
+            "click",
+            () => {
+
+                const entries =
+                    loadEntries();
+
+                delete entries[date];
+
+                saveEntries(entries);
+
+                renderDiary();
+
+                if (date === getTodayKey()) {
+                    diaryInput.value = "";
+                }
+            }
+        );
+
+
+        const text =
+            document.createElement("div");
+
+        text.className =
+            "entry-text";
+
+        text.textContent =
+            entries[date];
+
+
+        top.appendChild(dateElement);
+        top.appendChild(deleteButton);
+
+        article.appendChild(top);
+        article.appendChild(text);
+
+        diaryList.appendChild(article);
+    });
+}
+
+
+saveDiaryButton.addEventListener(
+    "click",
+    () => {
+
+        const text =
+            diaryInput.value.trim();
+
+
+        if (!text) {
+
+            saveMessage.textContent =
+                "何か書いてみよう。";
+
+            return;
+        }
+
+
+        const entries =
+            loadEntries();
+
+        const today =
+            getTodayKey();
+
+
+        entries[today] = text;
+
+        saveEntries(entries);
+
+        renderDiary();
+
+
+        saveMessage.textContent =
+            "SAVED";
+
+
+        setTimeout(() => {
+
+            saveMessage.textContent = "";
+
+        }, 2000);
+    }
+);
+
+
+// --------------------
+// INITIALIZE
+// --------------------
+
 function update() {
 
     updateClock();
@@ -166,7 +374,13 @@ function update() {
 }
 
 
-update();
+diaryDate.textContent =
+    getTodayKey();
 
+
+loadTodayDiary();
+renderDiary();
+
+update();
 
 setInterval(update, 1000);

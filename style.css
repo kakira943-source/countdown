@@ -234,3 +234,214 @@ h1 {
         margin-bottom: 65px;
     }
 }
+/* --------------------
+   DIARY
+-------------------- */
+
+.diary {
+    padding-top: 10px;
+}
+
+
+.diary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 35px;
+}
+
+
+.diary-header h2 {
+    font-size: 28px;
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+
+.diary-header span {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+}
+
+
+#diaryInput {
+    width: 100%;
+    min-height: 180px;
+
+    resize: vertical;
+
+    border: 1px solid var(--line);
+
+    outline: none;
+
+    padding: 20px;
+
+    background: #101010;
+    color: var(--text);
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+#diaryInput:focus {
+    border-color: #444;
+}
+
+
+#diaryInput::placeholder {
+    color: #555;
+}
+
+
+.diary-actions {
+    display: flex;
+    align-items: center;
+
+    margin-top: 12px;
+
+    min-height: 35px;
+}
+
+
+#saveDiary {
+    border: 1px solid var(--text);
+
+    background: var(--text);
+    color: var(--background);
+
+    padding: 9px 20px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#saveDiary:hover {
+    background: transparent;
+    color: var(--text);
+}
+
+
+#saveMessage {
+    margin-left: 15px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+}
+
+
+/* ENTRIES */
+
+.entries {
+    margin-top: 75px;
+}
+
+
+.entries-title {
+    margin-bottom: 20px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.diary-entry {
+    border-top: 1px solid var(--line);
+
+    padding: 24px 0;
+}
+
+
+.entry-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+.entry-date {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    color: var(--text);
+}
+
+
+.delete-entry {
+    border: none;
+
+    background: transparent;
+
+    color: #444;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+.delete-entry:hover {
+    color: var(--text);
+}
+
+
+.entry-text {
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    white-space: pre-wrap;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .diary-header {
+        margin-bottom: 25px;
+    }
+
+    .diary-header h2 {
+        font-size: 26px;
+    }
+
+    #diaryInput {
+        min-height: 160px;
+
+        font-size: 13px;
+    }
+
+    .entries {
+        margin-top: 60px;
+    }
+}
