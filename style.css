@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap');
+
 
 * {
     box-sizing: border-box;
@@ -6,550 +7,230 @@
     padding: 0;
 }
 
+
 :root {
-    --bg: #090909;
-    --surface: #111111;
-    --surface-hover: #151515;
-    --text: #f1f0ec;
-    --muted: #6d6d6d;
-    --line: #292929;
-    --line-light: #3b3b3b;
+    --background: #0b0b0b;
+    --text: #eeeeeb;
+    --muted: #666666;
+    --line: #272727;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 body {
     min-height: 100vh;
 
-    background: var(--bg);
+    background: var(--background);
     color: var(--text);
 
     font-family: Inter, sans-serif;
-
-    overflow-x: hidden;
 }
 
 
-/* --------------------
-   BACKGROUND
--------------------- */
+main {
+    width: min(1000px, calc(100% - 40px));
 
-body::before {
-    content: "";
+    min-height: 100vh;
 
-    position: fixed;
-    inset: 0;
+    margin: 0 auto;
 
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 50% 15%,
-            rgba(255,255,255,0.055),
-            transparent 32%
-        );
-}
-
-.noise {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: 0.035;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+    padding: 55px 0 60px;
 }
 
 
-/* --------------------
-   CONTAINER
--------------------- */
+/* HEADER */
 
-.container {
-    position: relative;
-
-    width: min(1000px, calc(100% - 48px));
-
-    margin: auto;
-
-    padding: 55px 0 35px;
-}
-
-
-/* --------------------
-   HEADER
--------------------- */
-
-.header {
-    border-bottom: 1px solid var(--line);
-
-    padding-bottom: 45px;
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 55px;
-
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-}
-
-#liveStatus {
-    color: #8d8d8d;
-}
-
-.header h1 {
-    font-size: clamp(60px, 11vw, 125px);
-
-    font-weight: 500;
-
-    line-height: 0.82;
-
-    letter-spacing: -0.075em;
-}
-
-.header h1 span {
-    color: #666;
-}
-
-.current-time {
+header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 
-    margin-top: 45px;
-
-    font-family: "Space Mono", monospace;
-}
-
-.current-time span {
-    color: var(--muted);
-
-    font-size: 10px;
-
-    letter-spacing: 0.12em;
-}
-
-.current-time strong {
-    font-size: 15px;
-    font-weight: 400;
-
-    letter-spacing: 0.05em;
-}
-
-
-/* --------------------
-   HERO
--------------------- */
-
-.hero {
-    padding: 85px 0 100px;
-}
-
-.hero-label {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 18px;
-
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-    font-size: 9px;
-
-    letter-spacing: 0.14em;
-}
-
-.hero h2 {
-    margin-bottom: 35px;
-
-    font-size: clamp(26px, 5vw, 48px);
-
-    font-weight: 400;
-
-    letter-spacing: -0.045em;
-}
-
-.hero-countdown {
-    display: flex;
-    align-items: flex-end;
-
     border-bottom: 1px solid var(--line);
 
-    padding-bottom: 35px;
+    padding-bottom: 25px;
 }
 
-.hero-days {
-    display: flex;
-    align-items: flex-end;
 
-    gap: 15px;
-
-    margin-right: 50px;
-}
-
-.hero-days strong {
-    font-family: "Space Mono", monospace;
-
-    font-size: clamp(80px, 16vw, 175px);
-
+h1 {
+    font-size: 14px;
     font-weight: 400;
-
-    line-height: 0.78;
-
-    letter-spacing: -0.09em;
-}
-
-.hero-days span {
-    margin-bottom: 7px;
-
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 9px;
 
     letter-spacing: 0.12em;
 }
 
-.hero-time {
-    display: flex;
-    align-items: center;
 
-    gap: 14px;
-
-    padding-bottom: 5px;
-}
-
-.hero-time div {
-    display: flex;
-    flex-direction: column;
-}
-
-.hero-time strong {
+#clock {
     font-family: "Space Mono", monospace;
 
-    font-size: clamp(22px, 4vw, 42px);
-
+    font-size: 17px;
     font-weight: 400;
 
-    letter-spacing: -0.06em;
+    letter-spacing: 0.04em;
 }
 
-.hero-time span {
-    margin-top: 7px;
 
+#today {
     color: var(--muted);
 
     font-family: "Space Mono", monospace;
 
-    font-size: 7px;
+    font-size: 10px;
 
     letter-spacing: 0.08em;
 }
 
-.hero-time i {
-    color: var(--muted);
 
-    font-family: "Space Mono", monospace;
+/* COUNTDOWN */
 
-    font-size: 20px;
-
-    font-style: normal;
-
-    margin-bottom: 15px;
+.countdown {
+    padding-top: 100px;
 }
 
 
-/* --------------------
-   PROGRESS
--------------------- */
-
-.hero-progress {
-    margin-top: 30px;
-}
-
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 10px;
-
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 8px;
-
-    letter-spacing: 0.1em;
-}
-
-.progress-track {
-    width: 100%;
-    height: 2px;
-
-    background: var(--line);
-}
-
-#heroProgress {
-    width: 0%;
-    height: 100%;
-
-    background: var(--text);
-
-    transition: width 0.4s ease;
+.event {
+    padding: 0 0 85px;
 }
 
 
-/* --------------------
-   EXAMS
--------------------- */
+.event-name {
+    margin-bottom: 12px;
 
-.exams {
-    border-top: 1px solid var(--line);
-
-    padding-top: 30px;
-}
-
-.section-title {
-    display: flex;
-    align-items: center;
-
-    gap: 18px;
-
-    margin-bottom: 28px;
-}
-
-.section-title span {
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 9px;
-}
-
-.section-title h3 {
-    font-family: "Space Mono", monospace;
-
-    font-size: 10px;
+    font-size: clamp(30px, 5vw, 50px);
 
     font-weight: 400;
 
-    letter-spacing: 0.15em;
+    letter-spacing: -0.05em;
 }
 
 
-/* --------------------
-   CARDS
--------------------- */
-
-.exam-card {
-    position: relative;
-
-    border-top: 1px solid var(--line);
-
-    padding: 28px 0 32px;
-
-    transition:
-        background 0.25s ease,
-        padding 0.25s ease;
-}
-
-.exam-card:hover {
-    background: var(--surface);
-    padding-left: 18px;
-    padding-right: 18px;
-}
-
-.exam-card-top {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 35px;
-}
-
-.exam-number,
-.exam-type {
-    color: var(--muted);
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 8px;
-
-    letter-spacing: 0.12em;
-}
-
-.exam-main {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
-.exam-date {
-    margin-bottom: 8px;
-
+.event-date {
     color: var(--muted);
 
     font-family: "Space Mono", monospace;
 
     font-size: 11px;
 
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
 }
 
-.exam-main h4 {
-    margin-bottom: 4px;
 
-    font-size: 27px;
+/* REMAINING */
 
-    font-weight: 400;
-
-    letter-spacing: -0.04em;
-}
-
-.exam-main div > span {
-    color: var(--muted);
-
-    font-size: 11px;
-}
-
-.card-countdown {
+.remaining {
     display: flex;
     align-items: baseline;
 
-    gap: 10px;
+    margin-top: 40px;
+
+    white-space: nowrap;
 }
 
-.card-countdown strong {
+
+.remaining span:not(.unit) {
     font-family: "Space Mono", monospace;
 
-    font-size: 50px;
+    font-size: clamp(42px, 8vw, 82px);
 
     font-weight: 400;
+
+    line-height: 1;
 
     letter-spacing: -0.08em;
 }
 
-.card-countdown span {
+
+.remaining .unit {
+    margin-left: 7px;
+    margin-right: 20px;
+
     color: var(--muted);
 
     font-family: "Space Mono", monospace;
 
-    font-size: 9px;
+    font-size: 10px;
 }
 
-.card-progress {
+
+/* LINE */
+
+.line {
     width: 100%;
     height: 1px;
 
-    margin-top: 30px;
+    margin-bottom: 85px;
 
     background: var(--line);
 }
 
-.card-progress div {
-    width: 0%;
-    height: 100%;
 
-    background: var(--text);
-
-    transition: width 0.5s ease;
-}
-
-
-/* --------------------
-   FOOTER
--------------------- */
-
-footer {
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 60px;
-
-    padding-top: 25px;
-
-    border-top: 1px solid var(--line);
-
-    color: #4f4f4f;
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 7px;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* --------------------
-   MOBILE
--------------------- */
+/* MOBILE */
 
 @media (max-width: 650px) {
 
-    .container {
-        width: calc(100% - 30px);
+    main {
+        width: calc(100% - 28px);
 
         padding-top: 30px;
     }
 
-    .header-top {
-        margin-bottom: 40px;
+
+    header {
+        flex-wrap: wrap;
+
+        gap: 15px;
     }
 
-    .header {
-        padding-bottom: 30px;
+
+    h1 {
+        width: 100%;
     }
 
-    .current-time {
-        margin-top: 30px;
+
+    #clock {
+        font-size: 15px;
     }
 
-    .hero {
-        padding: 60px 0 70px;
+
+    #today {
+        font-size: 9px;
     }
 
-    .hero-countdown {
-        display: block;
+
+    .countdown {
+        padding-top: 65px;
     }
 
-    .hero-days {
-        margin-right: 0;
-        margin-bottom: 35px;
+
+    .event {
+        padding-bottom: 65px;
     }
 
-    .hero-days strong {
-        font-size: 105px;
+
+    .event-name {
+        font-size: 34px;
     }
 
-    .hero-time {
-        gap: 12px;
+
+    .remaining {
+        margin-top: 32px;
+
+        flex-wrap: wrap;
+
+        row-gap: 15px;
     }
 
-    .hero-time strong {
-        font-size: 27px;
+
+    .remaining span:not(.unit) {
+        font-size: 43px;
     }
 
-    .exam-main h4 {
-        font-size: 22px;
+
+    .remaining .unit {
+        margin-right: 10px;
+        margin-left: 5px;
     }
 
-    .card-countdown strong {
-        font-size: 38px;
-    }
 
-    .exam-card:hover {
-        padding-left: 0;
-        padding-right: 0;
-        background: transparent;
+    .line {
+        margin-bottom: 65px;
     }
 }

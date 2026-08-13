@@ -4,191 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EXAM COUNTDOWN</title>
+    <title>COUNTDOWN</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="noise"></div>
+<main>
 
-    <main class="container">
+    <header>
+        <h1>COUNTDOWN</h1>
+        <div id="clock">00:00:00</div>
+        <div id="today">2026.08.13</div>
+    </header>
 
-        <header class="header">
-            <div class="header-top">
-                <span>2027 EXAMINATION</span>
-                <span id="liveStatus">● LIVE</span>
+
+    <section class="countdown">
+
+        <div class="event">
+            <div class="event-name">共通テスト</div>
+
+            <div class="event-date">
+                2027.01.17&nbsp;&nbsp;09:30
             </div>
 
-            <h1>
-                EXAM<br>
-                <span>COUNTDOWN</span>
-            </h1>
+            <div class="remaining">
+                <span id="commonDays">000</span>
+                <span class="unit">日</span>
 
-            <div class="current-time">
-                <span id="currentDate">2026.08.13</span>
-                <strong id="clock">00:00:00</strong>
+                <span id="commonHours">00</span>
+                <span class="unit">時間</span>
+
+                <span id="commonMinutes">00</span>
+                <span class="unit">分</span>
+
+                <span id="commonSeconds">00</span>
+                <span class="unit">秒</span>
             </div>
-        </header>
+        </div>
 
 
-        <!-- MAIN COUNTDOWN -->
+        <div class="line"></div>
 
-        <section class="hero">
 
-            <div class="hero-label">
-                <span>NEXT EXAM</span>
-                <span id="nextExamDate">2027.01.16</span>
-            </div>
+        <div class="event">
 
-            <h2 id="nextExamName">共通テスト 1日目</h2>
+            <div class="event-name">二次試験</div>
 
-            <div class="hero-countdown">
-
-                <div class="hero-days">
-                    <strong id="heroDays">000</strong>
-                    <span>DAYS</span>
-                </div>
-
-                <div class="hero-time">
-                    <div>
-                        <strong id="heroHours">00</strong>
-                        <span>HOURS</span>
-                    </div>
-
-                    <i>:</i>
-
-                    <div>
-                        <strong id="heroMinutes">00</strong>
-                        <span>MINUTES</span>
-                    </div>
-
-                    <i>:</i>
-
-                    <div>
-                        <strong id="heroSeconds">00</strong>
-                        <span>SECONDS</span>
-                    </div>
-                </div>
-
+            <div class="event-date">
+                2027.02.25
             </div>
 
-            <div class="hero-progress">
-                <div class="progress-header">
-                    <span>PREPARATION</span>
-                    <span id="heroProgressText">0%</span>
-                </div>
+            <div class="remaining">
+                <span id="secondDays">000</span>
+                <span class="unit">日</span>
 
-                <div class="progress-track">
-                    <div id="heroProgress"></div>
-                </div>
+                <span id="secondHours">00</span>
+                <span class="unit">時間</span>
+
+                <span id="secondMinutes">00</span>
+                <span class="unit">分</span>
+
+                <span id="secondSeconds">00</span>
+                <span class="unit">秒</span>
             </div>
 
-        </section>
+        </div>
 
+    </section>
 
-        <!-- EXAM CARDS -->
+</main>
 
-        <section class="exams">
-
-            <div class="section-title">
-                <span>01</span>
-                <h3>EXAM SCHEDULE</h3>
-            </div>
-
-
-            <article class="exam-card" data-exam="common1">
-
-                <div class="exam-card-top">
-                    <span class="exam-number">01</span>
-                    <span class="exam-type">COMMON TEST</span>
-                </div>
-
-                <div class="exam-main">
-                    <div>
-                        <p class="exam-date">2027.01.16</p>
-                        <h4>共通テスト</h4>
-                        <span>1日目</span>
-                    </div>
-
-                    <div class="card-countdown">
-                        <strong id="common1Days">000</strong>
-                        <span>日</span>
-                    </div>
-                </div>
-
-                <div class="card-progress">
-                    <div id="common1Progress"></div>
-                </div>
-
-            </article>
-
-
-            <article class="exam-card" data-exam="common2">
-
-                <div class="exam-card-top">
-                    <span class="exam-number">02</span>
-                    <span class="exam-type">COMMON TEST</span>
-                </div>
-
-                <div class="exam-main">
-                    <div>
-                        <p class="exam-date">2027.01.17</p>
-                        <h4>共通テスト</h4>
-                        <span>2日目</span>
-                    </div>
-
-                    <div class="card-countdown">
-                        <strong id="common2Days">000</strong>
-                        <span>日</span>
-                    </div>
-                </div>
-
-                <div class="card-progress">
-                    <div id="common2Progress"></div>
-                </div>
-
-            </article>
-
-
-            <article class="exam-card final-exam" data-exam="second">
-
-                <div class="exam-card-top">
-                    <span class="exam-number">03</span>
-                    <span class="exam-type">SECONDARY EXAM</span>
-                </div>
-
-                <div class="exam-main">
-                    <div>
-                        <p class="exam-date">2027.02.25</p>
-                        <h4>二次試験</h4>
-                        <span>前期日程</span>
-                    </div>
-
-                    <div class="card-countdown">
-                        <strong id="secondDays">000</strong>
-                        <span>日</span>
-                    </div>
-                </div>
-
-                <div class="card-progress">
-                    <div id="secondProgress"></div>
-                </div>
-
-            </article>
-
-        </section>
-
-
-        <footer>
-            <span>FOCUS. STUDY. REPEAT.</span>
-            <span>2026 — 2027</span>
-        </footer>
-
-    </main>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

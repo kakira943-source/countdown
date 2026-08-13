@@ -1,38 +1,28 @@
-const exams = [
-    {
-        id: "common1",
-        name: "共通テスト 1日目",
-        date: new Date(2027, 0, 16, 0, 0, 0),
-        start: new Date(2026, 7, 13, 0, 0, 0)
-    },
-    {
-        id: "common2",
-        name: "共通テスト 2日目",
-        date: new Date(2027, 0, 17, 0, 0, 0),
-        start: new Date(2026, 7, 13, 0, 0, 0)
-    },
-    {
-        id: "second",
-        name: "二次試験",
-        date: new Date(2027, 1, 25, 0, 0, 0),
-        start: new Date(2026, 7, 13, 0, 0, 0)
-    }
-];
+const commonTest = new Date(
+    2027,
+    0,
+    17,
+    9,
+    30,
+    0
+);
 
 
-const clock = document.getElementById("clock");
-const currentDate = document.getElementById("currentDate");
+const secondExam = new Date(
+    2027,
+    1,
+    25,
+    0,
+    0,
+    0
+);
 
-const nextExamName = document.getElementById("nextExamName");
-const nextExamDate = document.getElementById("nextExamDate");
 
-const heroDays = document.getElementById("heroDays");
-const heroHours = document.getElementById("heroHours");
-const heroMinutes = document.getElementById("heroMinutes");
-const heroSeconds = document.getElementById("heroSeconds");
+const clockElement =
+    document.getElementById("clock");
 
-const heroProgress = document.getElementById("heroProgress");
-const heroProgressText = document.getElementById("heroProgressText");
+const todayElement =
+    document.getElementById("today");
 
 
 function pad(number, digits = 2) {
@@ -41,6 +31,7 @@ function pad(number, digits = 2) {
 
 
 function formatDate(date) {
+
     return (
         date.getFullYear() +
         "." +
@@ -51,169 +42,103 @@ function formatDate(date) {
 }
 
 
-function getRemaining(target) {
-
-    const now = new Date();
-
-    const difference = target.getTime() - now.getTime();
-
-    if (difference <= 0) {
-        return null;
-    }
-
-    const totalSeconds = Math.floor(difference / 1000);
-
-    return {
-        days: Math.floor(totalSeconds / 86400),
-
-        hours: Math.floor(
-            (totalSeconds % 86400) / 3600
-        ),
-
-        minutes: Math.floor(
-            (totalSeconds % 3600) / 60
-        ),
-
-        seconds: totalSeconds % 60
-    };
-}
-
-
-function getNextExam() {
-
-    const now = new Date();
-
-    return exams.find(exam => {
-        return exam.date > now;
-    });
-}
-
-
 function updateClock() {
 
     const now = new Date();
 
-    currentDate.textContent = formatDate(now);
-
-    clock.textContent =
+    clockElement.textContent =
         pad(now.getHours()) +
         ":" +
         pad(now.getMinutes()) +
         ":" +
         pad(now.getSeconds());
+
+    todayElement.textContent =
+        formatDate(now);
 }
 
 
-function updateHero(exam) {
-
-    if (!exam) {
-
-        nextExamName.textContent = "ALL EXAMS COMPLETED";
-        nextExamDate.textContent = "2027";
-
-        heroDays.textContent = "000";
-        heroHours.textContent = "00";
-        heroMinutes.textContent = "00";
-        heroSeconds.textContent = "00";
-
-        heroProgress.style.width = "100%";
-        heroProgressText.textContent = "100%";
-
-        return;
-    }
-
-
-    const remaining = getRemaining(exam.date);
-
-    nextExamName.textContent = exam.name;
-    nextExamDate.textContent = formatDate(exam.date);
-
-
-    if (!remaining) {
-        return;
-    }
-
-
-    heroDays.textContent = pad(remaining.days, 3);
-    heroHours.textContent = pad(remaining.hours);
-    heroMinutes.textContent = pad(remaining.minutes);
-    heroSeconds.textContent = pad(remaining.seconds);
-
+function getRemaining(target) {
 
     const now = new Date();
 
-    const total =
-        exam.date.getTime() -
-        exam.start.getTime();
+    const difference =
+        target.getTime() - now.getTime();
 
-    const elapsed =
-        now.getTime() -
-        exam.start.getTime();
 
-    let percentage =
-        (elapsed / total) * 100;
+    if (difference <= 0) {
+        return {
+            days: 0,
+            hours: 0,
+            minutes: 0,
+            seconds: 0
+        };
+    }
 
-    percentage = Math.max(
-        0,
-        Math.min(100, percentage)
-    );
 
-    heroProgress.style.width =
-        `${percentage}%`;
+    const totalSeconds =
+        Math.floor(difference / 1000);
 
-    heroProgressText.textContent =
-        `${percentage.toFixed(1)}%`;
+
+    const days =
+        Math.floor(totalSeconds / 86400);
+
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return {
+        days,
+        hours,
+        minutes,
+        seconds
+    };
 }
 
 
-function updateCard(exam) {
+function updateCountdown(
+    target,
+    daysId,
+    hoursId,
+    minutesId,
+    secondsId
+) {
 
-    const remaining = getRemaining(exam.date);
-
-    const daysElement =
-        document.getElementById(
-            `${exam.id}Days`
-        );
-
-    const progressElement =
-        document.getElementById(
-            `${exam.id}Progress`
-        );
+    const remaining =
+        getRemaining(target);
 
 
-    if (!remaining) {
-
-        daysElement.textContent = "00";
-        progressElement.style.width = "100%";
-
-        return;
-    }
+    document.getElementById(daysId)
+        .textContent =
+        pad(remaining.days, 3);
 
 
-    daysElement.textContent =
-        pad(remaining.days, 2);
+    document.getElementById(hoursId)
+        .textContent =
+        pad(remaining.hours);
 
 
-    const now = new Date();
+    document.getElementById(minutesId)
+        .textContent =
+        pad(remaining.minutes);
 
-    const total =
-        exam.date.getTime() -
-        exam.start.getTime();
 
-    const elapsed =
-        now.getTime() -
-        exam.start.getTime();
-
-    let percentage =
-        (elapsed / total) * 100;
-
-    percentage = Math.max(
-        0,
-        Math.min(100, percentage)
-    );
-
-    progressElement.style.width =
-        `${percentage}%`;
+    document.getElementById(secondsId)
+        .textContent =
+        pad(remaining.seconds);
 }
 
 
@@ -221,16 +146,27 @@ function update() {
 
     updateClock();
 
-    const nextExam = getNextExam();
 
-    updateHero(nextExam);
+    updateCountdown(
+        commonTest,
+        "commonDays",
+        "commonHours",
+        "commonMinutes",
+        "commonSeconds"
+    );
 
-    exams.forEach(exam => {
-        updateCard(exam);
-    });
+
+    updateCountdown(
+        secondExam,
+        "secondDays",
+        "secondHours",
+        "secondMinutes",
+        "secondSeconds"
+    );
 }
 
 
 update();
+
 
 setInterval(update, 1000);
