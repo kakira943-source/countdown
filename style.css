@@ -7,231 +7,468 @@
 }
 
 :root {
-    --background: #0b0b0b;
-    --foreground: #f2f0eb;
-    --muted: #777;
+    --bg: #090909;
+    --surface: #111111;
+    --surface-hover: #151515;
+    --text: #f1f0ec;
+    --muted: #6d6d6d;
     --line: #292929;
-    --accent: #e8e4dc;
+    --line-light: #3b3b3b;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
-    background: var(--background);
-    color: var(--foreground);
+
+    background: var(--bg);
+    color: var(--text);
+
     font-family: Inter, sans-serif;
+
     overflow-x: hidden;
 }
 
-.background {
+
+/* --------------------
+   BACKGROUND
+-------------------- */
+
+body::before {
+    content: "";
+
     position: fixed;
     inset: 0;
+
     pointer-events: none;
 
     background:
         radial-gradient(
-            circle at 50% 40%,
-            rgba(255, 255, 255, 0.055),
-            transparent 35%
+            circle at 50% 15%,
+            rgba(255,255,255,0.055),
+            transparent 32%
         );
 }
 
+.noise {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+}
+
+
+/* --------------------
+   CONTAINER
+-------------------- */
+
 .container {
-    width: min(900px, calc(100% - 40px));
-    min-height: 100vh;
+    position: relative;
+
+    width: min(1000px, calc(100% - 48px));
+
     margin: auto;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 70px 0;
+    padding: 55px 0 35px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 80px;
-}
 
-.eyebrow,
-.label,
-footer,
-.progress-info,
-small {
-    font-family: "Space Mono", monospace;
-    letter-spacing: 0.16em;
-}
+/* --------------------
+   HEADER
+-------------------- */
 
-.eyebrow {
-    color: var(--muted);
-    font-size: 11px;
-    margin-bottom: 18px;
-}
-
-h1 {
-    font-size: clamp(48px, 9vw, 100px);
-    font-weight: 500;
-    letter-spacing: -0.07em;
-    line-height: 0.9;
-}
-
-.target-section {
-    margin-bottom: 70px;
-}
-
-.label {
-    color: var(--muted);
-    font-size: 10px;
-    margin-bottom: 12px;
-}
-
-.date-picker {
-    display: flex;
-    gap: 8px;
-}
-
-input[type="date"] {
-    flex: 1;
-
-    background: transparent;
-    border: 1px solid var(--line);
-    color: var(--foreground);
-
-    padding: 16px;
-
-    font-family: "Space Mono", monospace;
-    font-size: 14px;
-
-    outline: none;
-}
-
-input[type="date"]:focus {
-    border-color: #555;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    opacity: 0.6;
-}
-
-button {
-    border: 1px solid var(--foreground);
-    background: var(--foreground);
-    color: var(--background);
-
-    padding: 0 28px;
-
-    font-family: "Space Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-button:hover {
-    background: transparent;
-    color: var(--foreground);
-}
-
-.countdown {
-    text-align: center;
-}
-
-.headline {
-    font-family: "Space Mono", monospace;
-    color: var(--muted);
-    font-size: 12px;
-    letter-spacing: 0.15em;
-
-    margin-bottom: 20px;
-}
-
-.days {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 18px;
-
+.header {
     border-bottom: 1px solid var(--line);
-    padding-bottom: 35px;
+
+    padding-bottom: 45px;
 }
 
-.days span {
-    font-family: "Space Mono", monospace;
-    font-size: clamp(80px, 18vw, 190px);
-    font-weight: 400;
-    letter-spacing: -0.08em;
-    line-height: 0.85;
-}
-
-.days small {
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.time {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 35px;
-}
-
-.unit {
-    min-width: 130px;
-}
-
-.unit span {
-    display: block;
-
-    font-family: "Space Mono", monospace;
-    font-size: clamp(30px, 6vw, 55px);
-    letter-spacing: -0.06em;
-}
-
-.unit small {
-    display: block;
-
-    margin-top: 8px;
-
-    color: var(--muted);
-    font-size: 8px;
-}
-
-.separator {
-    color: var(--muted);
-    font-family: "Space Mono", monospace;
-    font-size: 30px;
-    margin-bottom: 25px;
-}
-
-.progress-section {
-    margin-top: 80px;
-}
-
-.progress-info {
+.header-top {
     display: flex;
     justify-content: space-between;
 
-    color: var(--muted);
-    font-size: 9px;
+    margin-bottom: 55px;
 
-    margin-bottom: 10px;
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
 }
 
-.progress-bar {
+#liveStatus {
+    color: #8d8d8d;
+}
+
+.header h1 {
+    font-size: clamp(60px, 11vw, 125px);
+
+    font-weight: 500;
+
+    line-height: 0.82;
+
+    letter-spacing: -0.075em;
+}
+
+.header h1 span {
+    color: #666;
+}
+
+.current-time {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-top: 45px;
+
+    font-family: "Space Mono", monospace;
+}
+
+.current-time span {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+}
+
+.current-time strong {
+    font-size: 15px;
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+}
+
+
+/* --------------------
+   HERO
+-------------------- */
+
+.hero {
+    padding: 85px 0 100px;
+}
+
+.hero-label {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+
+    letter-spacing: 0.14em;
+}
+
+.hero h2 {
+    margin-bottom: 35px;
+
+    font-size: clamp(26px, 5vw, 48px);
+
+    font-weight: 400;
+
+    letter-spacing: -0.045em;
+}
+
+.hero-countdown {
+    display: flex;
+    align-items: flex-end;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 35px;
+}
+
+.hero-days {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 15px;
+
+    margin-right: 50px;
+}
+
+.hero-days strong {
+    font-family: "Space Mono", monospace;
+
+    font-size: clamp(80px, 16vw, 175px);
+
+    font-weight: 400;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.09em;
+}
+
+.hero-days span {
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+}
+
+.hero-time {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 5px;
+}
+
+.hero-time div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-time strong {
+    font-family: "Space Mono", monospace;
+
+    font-size: clamp(22px, 4vw, 42px);
+
+    font-weight: 400;
+
+    letter-spacing: -0.06em;
+}
+
+.hero-time span {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+}
+
+.hero-time i {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 20px;
+
+    font-style: normal;
+
+    margin-bottom: 15px;
+}
+
+
+/* --------------------
+   PROGRESS
+-------------------- */
+
+.hero-progress {
+    margin-top: 30px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+}
+
+.progress-track {
     width: 100%;
     height: 2px;
+
     background: var(--line);
 }
 
-#progress {
+#heroProgress {
     width: 0%;
     height: 100%;
-    background: var(--accent);
+
+    background: var(--text);
+
+    transition: width 0.4s ease;
+}
+
+
+/* --------------------
+   EXAMS
+-------------------- */
+
+.exams {
+    border-top: 1px solid var(--line);
+
+    padding-top: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.section-title span {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+}
+
+.section-title h3 {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* --------------------
+   CARDS
+-------------------- */
+
+.exam-card {
+    position: relative;
+
+    border-top: 1px solid var(--line);
+
+    padding: 28px 0 32px;
+
+    transition:
+        background 0.25s ease,
+        padding 0.25s ease;
+}
+
+.exam-card:hover {
+    background: var(--surface);
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.exam-card-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+.exam-number,
+.exam-type {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+}
+
+.exam-main {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.exam-date {
+    margin-bottom: 8px;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.1em;
+}
+
+.exam-main h4 {
+    margin-bottom: 4px;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+.exam-main div > span {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.card-countdown {
+    display: flex;
+    align-items: baseline;
+
+    gap: 10px;
+}
+
+.card-countdown strong {
+    font-family: "Space Mono", monospace;
+
+    font-size: 50px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.08em;
+}
+
+.card-countdown span {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+}
+
+.card-progress {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 30px;
+
+    background: var(--line);
+}
+
+.card-progress div {
+    width: 0%;
+    height: 100%;
+
+    background: var(--text);
 
     transition: width 0.5s ease;
 }
+
+
+/* --------------------
+   FOOTER
+-------------------- */
 
 footer {
     display: flex;
@@ -239,51 +476,80 @@ footer {
 
     margin-top: 60px;
 
-    color: #555;
-    font-size: 8px;
+    padding-top: 25px;
+
+    border-top: 1px solid var(--line);
+
+    color: #4f4f4f;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.12em;
 }
 
-@media (max-width: 600px) {
+
+/* --------------------
+   MOBILE
+-------------------- */
+
+@media (max-width: 650px) {
 
     .container {
-        width: calc(100% - 28px);
-        padding: 45px 0;
+        width: calc(100% - 30px);
+
+        padding-top: 30px;
     }
 
-    header {
-        margin-bottom: 55px;
+    .header-top {
+        margin-bottom: 40px;
     }
 
-    .target-section {
-        margin-bottom: 55px;
+    .header {
+        padding-bottom: 30px;
     }
 
-    .days {
-        padding-bottom: 25px;
+    .current-time {
+        margin-top: 30px;
     }
 
-    .days small {
-        font-size: 8px;
+    .hero {
+        padding: 60px 0 70px;
     }
 
-    .time {
-        padding-top: 25px;
+    .hero-countdown {
+        display: block;
     }
 
-    .unit {
-        min-width: 0;
-        flex: 1;
+    .hero-days {
+        margin-right: 0;
+        margin-bottom: 35px;
     }
 
-    .separator {
-        font-size: 20px;
+    .hero-days strong {
+        font-size: 105px;
     }
 
-    .progress-section {
-        margin-top: 60px;
+    .hero-time {
+        gap: 12px;
     }
 
-    footer {
-        margin-top: 45px;
+    .hero-time strong {
+        font-size: 27px;
+    }
+
+    .exam-main h4 {
+        font-size: 22px;
+    }
+
+    .card-countdown strong {
+        font-size: 38px;
+    }
+
+    .exam-card:hover {
+        padding-left: 0;
+        padding-right: 0;
+        background: transparent;
     }
 }
