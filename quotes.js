@@ -21,8 +21,8 @@ const quotes = [
     },
     {
         en: "I have no idea what I'm doing.",
-        jp: "自分が何をしているのか全く分からない。",
-        author: "Unkown",
+        ja: "自分が何をしているのか全く分からない。",
+        author: "Unknown",
     },
     {
         en: "Discipline is choosing between what you want now and what you want most.",
