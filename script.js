@@ -624,26 +624,58 @@ function playTimerSound() {
 // QUOTE
 // --------------------
 
-const quotes = [
+function getQuoteIndex() {
 
-    {
-        en: "From this moment on, I’m going to ruin you. You’re capable of nothing.",
-        ja: "今からお前らを台無しにする。お前らは何もできない。"
-    },
+    const now = new Date();
 
-    {
-        en: "It doesn’t matter. I’ll just take care of it as usual.",
-        ja: "何ら問題ない。いつも通り始末するだけだ。"
-    },
+    const start =
+        new Date(
+            now.getFullYear(),
+            0,
+            0
+        );
 
-    {
-        en: "Losing is not an option.",
-        ja: "負けるという選択肢はない。"
-    }
+    const difference =
+        now - start;
 
-];
+    const oneDay =
+        1000 * 60 * 60 * 24;
+
+    const dayOfYear =
+        Math.floor(
+            difference / oneDay
+        );
+
+    return dayOfYear % quotes.length;
+}
 
 
+function updateQuote() {
+
+    const index =
+        getQuoteIndex();
+
+    const quote =
+        quotes[index];
+
+    document.getElementById(
+        "quoteEnglish"
+    ).textContent =
+        `“${quote.en}”`;
+
+    document.getElementById(
+        "quoteJapanese"
+    ).textContent =
+        quote.ja;
+
+    document.getElementById(
+        "quoteDate"
+    ).textContent =
+        formatDate(new Date());
+}
+
+
+updateQuote();
 function getQuoteIndex() {
 
     const now = new Date();
