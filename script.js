@@ -649,6 +649,7 @@ function getQuoteIndex() {
     return dayOfYear % quotes.length;
 }
 
+
 function updateQuote() {
 
     const index =
@@ -671,66 +672,6 @@ function updateQuote() {
         "quoteAuthor"
     ).textContent =
         `— ${quote.author}`;
-
-    document.getElementById(
-        "quoteDate"
-    ).textContent =
-        formatDate(new Date());
-}
-
-updateQuote();
-
-function getQuoteIndex() {
-
-    const now = new Date();
-
-    const start =
-        new Date(
-            now.getFullYear(),
-            0,
-            0
-        );
-
-
-    const difference =
-        now - start;
-
-
-    const oneDay =
-        1000 * 60 * 60 * 24;
-
-
-    const dayOfYear =
-        Math.floor(
-            difference / oneDay
-        );
-
-
-    return dayOfYear % quotes.length;
-}
-
-
-function updateQuote() {
-
-    const index =
-        getQuoteIndex();
-
-
-    const quote =
-        quotes[index];
-
-
-    document.getElementById(
-        "quoteEnglish"
-    ).textContent =
-        `“${quote.en}”`;
-
-
-    document.getElementById(
-        "quoteJapanese"
-    ).textContent =
-        quote.ja;
-
 
     document.getElementById(
         "quoteDate"
