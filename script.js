@@ -384,3 +384,190 @@ renderDiary();
 update();
 
 setInterval(update, 1000);
+
+// --------------------
+// TIMER
+// --------------------
+
+const timerDisplay =
+    document.getElementById("timerDisplay");
+
+const startTimerButton =
+    document.getElementById("startTimer");
+
+const resetTimerButton =
+    document.getElementById("resetTimer");
+
+
+const TIMER_LENGTH = 25 * 60;
+
+let timerSeconds = TIMER_LENGTH;
+let timerInterval = null;
+let timerRunning = false;
+
+
+// 表示更新
+
+function updateTimerDisplay() {
+
+    const minutes =
+        Math.floor(timerSeconds / 60);
+
+    const seconds =
+        timerSeconds % 60;
+
+    timerDisplay.textContent =
+        pad(minutes) +
+        ":" +
+        pad(seconds);
+}
+
+
+// タイマー開始・停止
+
+startTimerButton.addEventListener(
+    "click",
+    () => {
+
+        if (timerRunning) {
+
+            clearInterval(timerInterval);
+
+            timerRunning = false;
+
+            startTimerButton.textContent =
+                "START";
+
+            return;
+        }
+
+
+        timerRunning = true;
+
+        startTimerButton.textContent =
+            "PAUSE";
+
+
+        timerInterval = setInterval(
+            () => {
+
+                timerSeconds--;
+
+                updateTimerDisplay();
+
+
+                if (timerSeconds <= 0) {
+
+                    clearInterval(timerInterval);
+
+                    timerRunning = false;
+
+                    startTimerButton.textContent =
+                        "START";
+
+                    timerSeconds =
+                        TIMER_LENGTH;
+
+                    updateTimerDisplay();
+
+                    playTimerSound();
+                }
+
+            },
+            1000
+        );
+    }
+);
+
+
+// リセット
+
+resetTimerButton.addEventListener(
+    "click",
+    () => {
+
+        clearInterval(timerInterval);
+
+        timerRunning = false;
+
+        timerSeconds =
+            TIMER_LENGTH;
+
+        startTimerButton.textContent =
+            "START";
+
+        updateTimerDisplay();
+    }
+);
+
+// --------------------
+// TIMER SOUND
+// --------------------
+
+function playTimerSound() {
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+
+    if (!AudioContext) {
+        return;
+    }
+
+
+    const audioContext =
+        new AudioContext();
+
+
+    function beep(startTime) {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value = 880;
+
+
+        gain.gain.setValueAtTime(
+            0.0001,
+            startTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.15,
+            startTime + 0.02
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            startTime + 0.35
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        oscillator.start(startTime);
+
+        oscillator.stop(startTime + 0.35);
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    beep(now);
+    beep(now + 0.5);
+    beep(now + 1.0);
+}
