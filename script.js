@@ -620,169 +620,87 @@ function playTimerSound() {
     beep(now + 0.5);
     beep(now + 1.0);
 }
+// --------------------
+// QUOTE
+// --------------------
 
-// 表示更新
+const quotes = [
 
-function updateTimerDisplay() {
+    {
+        en: "From this moment on, I’m going to ruin you. You’re capable of nothing.",
+        ja: "今からお前らを台無しにする。お前らは何もできない。"
+    },
 
-    const minutes =
-        Math.floor(timerSeconds / 60);
+    {
+        en: "It doesn’t matter. I’ll just take care of it as usual.",
+        ja: "何ら問題ない。いつも通り始末するだけだ。"
+    },
 
-    const seconds =
-        timerSeconds % 60;
+    {
+        en: "Losing is not an option.",
+        ja: "負けるという選択肢はない。"
+    }
 
-    timerDisplay.textContent =
-        pad(minutes) +
-        ":" +
-        pad(seconds);
+];
+
+
+function getQuoteIndex() {
+
+    const now = new Date();
+
+    const start =
+        new Date(
+            now.getFullYear(),
+            0,
+            0
+        );
+
+
+    const difference =
+        now - start;
+
+
+    const oneDay =
+        1000 * 60 * 60 * 24;
+
+
+    const dayOfYear =
+        Math.floor(
+            difference / oneDay
+        );
+
+
+    return dayOfYear % quotes.length;
 }
 
 
-// タイマー開始・停止
+function updateQuote() {
 
-startTimerButton.addEventListener(
-    "click",
-    () => {
-
-        if (timerRunning) {
-
-            clearInterval(timerInterval);
-
-            timerRunning = false;
-
-            startTimerButton.textContent =
-                "START";
-
-            return;
-        }
+    const index =
+        getQuoteIndex();
 
 
-        timerRunning = true;
-
-        startTimerButton.textContent =
-            "PAUSE";
+    const quote =
+        quotes[index];
 
 
-        timerInterval = setInterval(
-            () => {
-
-                timerSeconds--;
-
-                updateTimerDisplay();
+    document.getElementById(
+        "quoteEnglish"
+    ).textContent =
+        `“${quote.en}”`;
 
 
-                if (timerSeconds <= 0) {
-
-                    clearInterval(timerInterval);
-
-                    timerRunning = false;
-
-                    startTimerButton.textContent =
-                        "START";
-
-                    timerSeconds =
-                        TIMER_LENGTH;
-
-                    updateTimerDisplay();
-
-                    playTimerSound();
-                }
-
-            },
-            1000
-        );
-    }
-);
+    document.getElementById(
+        "quoteJapanese"
+    ).textContent =
+        quote.ja;
 
 
-// リセット
-
-resetTimerButton.addEventListener(
-    "click",
-    () => {
-
-        clearInterval(timerInterval);
-
-        timerRunning = false;
-
-        timerSeconds =
-            TIMER_LENGTH;
-
-        startTimerButton.textContent =
-            "START";
-
-        updateTimerDisplay();
-    }
-);
-
-// --------------------
-// TIMER SOUND
-// --------------------
-
-function playTimerSound() {
-
-    const AudioContext =
-        window.AudioContext ||
-        window.webkitAudioContext;
-
-
-    if (!AudioContext) {
-        return;
-    }
-
-
-    const audioContext =
-        new AudioContext();
-
-
-    function beep(startTime) {
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.value = 880;
-
-
-        gain.gain.setValueAtTime(
-            0.0001,
-            startTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.15,
-            startTime + 0.02
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.0001,
-            startTime + 0.35
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(
-            audioContext.destination
-        );
-
-
-        oscillator.start(startTime);
-
-        oscillator.stop(startTime + 0.35);
-    }
-
-
-    const now =
-        audioContext.currentTime;
-
-
-    beep(now);
-    beep(now + 0.5);
-    beep(now + 1.0);
+    document.getElementById(
+        "quoteDate"
+    ).textContent =
+        formatDate(new Date());
 }
+
+
+updateQuote();

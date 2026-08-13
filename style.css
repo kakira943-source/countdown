@@ -585,3 +585,61 @@ h1 {
     background: var(--text);
     color: var(--background);
 }
+/* --------------------
+   QUOTE
+-------------------- */
+
+.quote {
+    padding-top: 20px;
+}
+
+
+.quote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+
+.quote-header h2 {
+    font-size: 28px;
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+
+.quote-header span {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+}
+
+
+.quote-en {
+    max-width: 850px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: clamp(24px, 4vw, 42px);
+
+    line-height: 1.5;
+
+    letter-spacing: -0.04em;
+}
+
+
+.quote-ja {
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
