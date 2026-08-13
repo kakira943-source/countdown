@@ -591,6 +591,8 @@ h1 {
 
 .quote {
     padding-top: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 
@@ -600,12 +602,12 @@ h1 {
     align-items: baseline;
 
     margin-top: 35px;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 
 .quote-header h2 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 400;
 
     letter-spacing: -0.04em;
@@ -622,24 +624,61 @@ h1 {
 
 
 .quote-en {
-    max-width: 850px;
+    max-width: 800px;
 
     font-family: "Space Mono", monospace;
 
-    font-size: clamp(24px, 4vw, 42px);
+    font-size: clamp(21px, 3vw, 34px);
 
-    line-height: 1.5;
+    line-height: 1.55;
 
     letter-spacing: -0.04em;
 }
 
 
 .quote-ja {
-    margin-top: 30px;
+    margin-top: 25px;
 
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 15px;
 
     line-height: 1.8;
+}
+
+
+.quote-author {
+    margin-top: 22px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    letter-spacing: 0.03em;
+}
+
+
+/* --------------------
+   MOBILE
+-------------------- */
+
+@media (max-width: 700px) {
+
+    .quote {
+        max-width: none;
+    }
+
+    .quote-en {
+        font-size: 22px;
+    }
+
+    .quote-ja {
+        font-size: 15px;
+    }
+
+    .quote-author {
+        font-size: 11px;
+    }
 }

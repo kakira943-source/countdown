@@ -649,7 +649,6 @@ function getQuoteIndex() {
     return dayOfYear % quotes.length;
 }
 
-
 function updateQuote() {
 
     const index =
@@ -669,13 +668,18 @@ function updateQuote() {
         quote.ja;
 
     document.getElementById(
+        "quoteAuthor"
+    ).textContent =
+        `— ${quote.author}`;
+
+    document.getElementById(
         "quoteDate"
     ).textContent =
         formatDate(new Date());
 }
 
-
 updateQuote();
+
 function getQuoteIndex() {
 
     const now = new Date();
