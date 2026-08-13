@@ -94,6 +94,10 @@
             placeholder="今日のことを書く..."
         ></textarea>
 
+        <p class="diary-note">
+         ※ 一日一回まで。(上書き保存されます。) 同じ端末では記録が残ります。
+        </p>
+
 
         <div class="diary-actions">
 
@@ -118,13 +122,19 @@
 
     </section>
     
-    <section class="timer">
+<section class="timer">
 
     <div class="line"></div>
 
     <div class="timer-header">
         <h2>TIMER</h2>
-        <span>25 MIN</span>
+        <span id="timerLength">25 MIN</span>
+    </div>
+
+    <div class="timer-options">
+        <button class="timer-option" data-minutes="5">5</button>
+        <button class="timer-option active" data-minutes="25">25</button>
+        <button class="timer-option" data-minutes="55">55</button>
     </div>
 
     <div id="timerDisplay">25:00</div>
@@ -135,6 +145,7 @@
     </div>
 
 </section>
+
     <footer>
         <span>2026 — 2027</span>
     </footer>

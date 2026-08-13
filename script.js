@@ -384,7 +384,6 @@ renderDiary();
 update();
 
 setInterval(update, 1000);
-
 // --------------------
 // TIMER
 // --------------------
@@ -398,13 +397,229 @@ const startTimerButton =
 const resetTimerButton =
     document.getElementById("resetTimer");
 
+const timerLength =
+    document.getElementById("timerLength");
 
-const TIMER_LENGTH = 25 * 60;
+const timerOptions =
+    document.querySelectorAll(".timer-option");
 
-let timerSeconds = TIMER_LENGTH;
+
+let selectedMinutes = 25;
+
+let timerSeconds =
+    selectedMinutes * 60;
+
 let timerInterval = null;
+
 let timerRunning = false;
 
+
+// 表示
+
+function updateTimerDisplay() {
+
+    const minutes =
+        Math.floor(timerSeconds / 60);
+
+    const seconds =
+        timerSeconds % 60;
+
+    timerDisplay.textContent =
+        pad(minutes) +
+        ":" +
+        pad(seconds);
+}
+
+
+// タイマー時間変更
+
+timerOptions.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            if (timerRunning) {
+                return;
+            }
+
+
+            selectedMinutes =
+                Number(button.dataset.minutes);
+
+
+            timerSeconds =
+                selectedMinutes * 60;
+
+
+            timerLength.textContent =
+                `${selectedMinutes} MIN`;
+
+
+            timerOptions.forEach(option => {
+                option.classList.remove("active");
+            });
+
+
+            button.classList.add("active");
+
+
+            updateTimerDisplay();
+        }
+    );
+});
+
+
+// START / PAUSE
+
+startTimerButton.addEventListener(
+    "click",
+    () => {
+
+        if (timerRunning) {
+
+            clearInterval(timerInterval);
+
+            timerRunning = false;
+
+            startTimerButton.textContent =
+                "START";
+
+            return;
+        }
+
+
+        timerRunning = true;
+
+        startTimerButton.textContent =
+            "PAUSE";
+
+
+        timerInterval = setInterval(
+            () => {
+
+                timerSeconds--;
+
+                updateTimerDisplay();
+
+
+                if (timerSeconds <= 0) {
+
+                    clearInterval(timerInterval);
+
+                    timerRunning = false;
+
+                    startTimerButton.textContent =
+                        "START";
+
+                    playTimerSound();
+
+                    timerSeconds =
+                        selectedMinutes * 60;
+
+                    updateTimerDisplay();
+                }
+
+            },
+            1000
+        );
+    }
+);
+
+
+// RESET
+
+resetTimerButton.addEventListener(
+    "click",
+    () => {
+
+        clearInterval(timerInterval);
+
+        timerRunning = false;
+
+        timerSeconds =
+            selectedMinutes * 60;
+
+        startTimerButton.textContent =
+            "START";
+
+        updateTimerDisplay();
+    }
+);
+
+// --------------------
+// TIMER SOUND
+// --------------------
+
+function playTimerSound() {
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+
+    if (!AudioContext) {
+        return;
+    }
+
+
+    const audioContext =
+        new AudioContext();
+
+
+    function beep(startTime) {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value = 880;
+
+
+        gain.gain.setValueAtTime(
+            0.0001,
+            startTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.15,
+            startTime + 0.02
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            startTime + 0.35
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        oscillator.start(startTime);
+
+        oscillator.stop(
+            startTime + 0.35
+        );
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    beep(now);
+    beep(now + 0.5);
+    beep(now + 1.0);
+}
 
 // 表示更新
 

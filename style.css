@@ -533,3 +533,55 @@ h1 {
     background: var(--text);
     color: var(--background);
 }
+.diary-note {
+    margin-top: 10px;
+
+    color: #555;
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* TIMER OPTIONS */
+
+.timer-options {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 35px;
+}
+
+
+.timer-option {
+    border: 1px solid var(--line);
+
+    background: transparent;
+    color: var(--muted);
+
+    width: 45px;
+    height: 32px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.timer-option:hover {
+    border-color: #666;
+    color: var(--text);
+}
+
+
+.timer-option.active {
+    border-color: var(--text);
+
+    background: var(--text);
+    color: var(--background);
+}
