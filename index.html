@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COUNTDOWN</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <main class="container">
+
+        <header>
+            <p class="eyebrow">TIME REMAINING</p>
+            <h1>COUNTDOWN</h1>
+        </header>
+
+        <section class="target-section">
+
+            <p class="label">TARGET DATE</p>
+
+            <div class="date-picker">
+                <input type="date" id="targetDate">
+                <button id="setDate">SET</button>
+            </div>
+
+        </section>
+
+        <section class="countdown">
+
+            <div class="headline">
+                <span id="targetText">2027.01.01</span>
+            </div>
+
+            <div class="days">
+                <span id="days">000</span>
+                <small>DAYS</small>
+            </div>
+
+            <div class="time">
+
+                <div class="unit">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+
+                <div class="separator">:</div>
+
+                <div class="unit">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+
+                <div class="separator">:</div>
+
+                <div class="unit">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="progress-section">
+
+            <div class="progress-info">
+                <span>PROGRESS</span>
+                <span id="progressPercent">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+
+        </section>
+
+        <footer>
+            <span id="currentDate"></span>
+            <span>LOCAL TIME</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

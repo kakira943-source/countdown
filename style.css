@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #0b0b0b;
+    --foreground: #f2f0eb;
+    --muted: #777;
+    --line: #292929;
+    --accent: #e8e4dc;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 255, 255, 0.055),
+            transparent 35%
+        );
+}
+
+.container {
+    width: min(900px, calc(100% - 40px));
+    min-height: 100vh;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 70px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.eyebrow,
+.label,
+footer,
+.progress-info,
+small {
+    font-family: "Space Mono", monospace;
+    letter-spacing: 0.16em;
+}
+
+.eyebrow {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(48px, 9vw, 100px);
+    font-weight: 500;
+    letter-spacing: -0.07em;
+    line-height: 0.9;
+}
+
+.target-section {
+    margin-bottom: 70px;
+}
+
+.label {
+    color: var(--muted);
+    font-size: 10px;
+    margin-bottom: 12px;
+}
+
+.date-picker {
+    display: flex;
+    gap: 8px;
+}
+
+input[type="date"] {
+    flex: 1;
+
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--foreground);
+
+    padding: 16px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 14px;
+
+    outline: none;
+}
+
+input[type="date"]:focus {
+    border-color: #555;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+}
+
+button {
+    border: 1px solid var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+
+    padding: 0 28px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: transparent;
+    color: var(--foreground);
+}
+
+.countdown {
+    text-align: center;
+}
+
+.headline {
+    font-family: "Space Mono", monospace;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+
+    margin-bottom: 20px;
+}
+
+.days {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 18px;
+
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 35px;
+}
+
+.days span {
+    font-family: "Space Mono", monospace;
+    font-size: clamp(80px, 18vw, 190px);
+    font-weight: 400;
+    letter-spacing: -0.08em;
+    line-height: 0.85;
+}
+
+.days small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 35px;
+}
+
+.unit {
+    min-width: 130px;
+}
+
+.unit span {
+    display: block;
+
+    font-family: "Space Mono", monospace;
+    font-size: clamp(30px, 6vw, 55px);
+    letter-spacing: -0.06em;
+}
+
+.unit small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--muted);
+    font-size: 8px;
+}
+
+.separator {
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.progress-section {
+    margin-top: 80px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--muted);
+    font-size: 9px;
+
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 2px;
+    background: var(--line);
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+
+    transition: width 0.5s ease;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 60px;
+
+    color: #555;
+    font-size: 8px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 28px);
+        padding: 45px 0;
+    }
+
+    header {
+        margin-bottom: 55px;
+    }
+
+    .target-section {
+        margin-bottom: 55px;
+    }
+
+    .days {
+        padding-bottom: 25px;
+    }
+
+    .days small {
+        font-size: 8px;
+    }
+
+    .time {
+        padding-top: 25px;
+    }
+
+    .unit {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .separator {
+        font-size: 20px;
+    }
+
+    .progress-section {
+        margin-top: 60px;
+    }
+
+    footer {
+        margin-top: 45px;
+    }
+}
