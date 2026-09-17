@@ -94,6 +94,33 @@
     <div class="quote-author" id="quoteAuthor"></div>
 
     </section>
+    
+    <!-- DAILY PROBLEM -->
+<section class="problem">
+    <div class="line"></div>
+
+    <div class="problem-header">
+        <h2>DAILY PROBLEM</h2>
+        <span id="problemDate"></span>
+    </div>
+
+    <div class="problem-category" id="problemCategory"></div>
+
+    <div class="problem-question" id="problemQuestion"></div>
+
+    <div class="problem-actions">
+        <button class="problem-button" id="answerToggle">
+            SHOW ANSWER
+        </button>
+
+        <button class="problem-button" id="solutionToggle">
+            SHOW SOLUTION
+        </button>
+    </div>
+
+    <div class="problem-answer" id="problemAnswer"></div>
+    <div class="problem-solution" id="problemSolution"></div>
+</section>
 
 <!-- DIARY -->
 
@@ -140,36 +167,11 @@
 
     </section>
 
-    <!-- TIMER -->
-
-<section class="timer">
-
-    <div class="line"></div>
-
-    <div class="timer-header">
-        <h2>TIMER</h2>
-        <span id="timerLength">25 MIN</span>
-    </div>
-
-    <div class="timer-options">
-        <button class="timer-option" data-minutes="5">5</button>
-        <button class="timer-option active" data-minutes="25">25</button>
-        <button class="timer-option" data-minutes="55">55</button>
-    </div>
-
-    <div id="timerDisplay">25:00</div>
-
-    <div class="timer-buttons">
-        <button id="startTimer">START</button>
-        <button id="resetTimer">RESET</button>
-    </div>
-
-</section>
-
 </main>
 
 <script src="quotes.js"></script>
 <script src="script.js"></script>
+<script src="problems.js"></script>
 
 </body>
 </html>

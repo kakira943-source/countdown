@@ -385,242 +385,6 @@ update();
 
 setInterval(update, 1000);
 // --------------------
-// TIMER
-// --------------------
-
-const timerDisplay =
-    document.getElementById("timerDisplay");
-
-const startTimerButton =
-    document.getElementById("startTimer");
-
-const resetTimerButton =
-    document.getElementById("resetTimer");
-
-const timerLength =
-    document.getElementById("timerLength");
-
-const timerOptions =
-    document.querySelectorAll(".timer-option");
-
-
-let selectedMinutes = 25;
-
-let timerSeconds =
-    selectedMinutes * 60;
-
-let timerInterval = null;
-
-let timerRunning = false;
-
-
-// 表示
-
-function updateTimerDisplay() {
-
-    const minutes =
-        Math.floor(timerSeconds / 60);
-
-    const seconds =
-        timerSeconds % 60;
-
-    timerDisplay.textContent =
-        pad(minutes) +
-        ":" +
-        pad(seconds);
-}
-
-
-// タイマー時間変更
-
-timerOptions.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            if (timerRunning) {
-                return;
-            }
-
-
-            selectedMinutes =
-                Number(button.dataset.minutes);
-
-
-            timerSeconds =
-                selectedMinutes * 60;
-
-
-            timerLength.textContent =
-                `${selectedMinutes} MIN`;
-
-
-            timerOptions.forEach(option => {
-                option.classList.remove("active");
-            });
-
-
-            button.classList.add("active");
-
-
-            updateTimerDisplay();
-        }
-    );
-});
-
-
-// START / PAUSE
-
-startTimerButton.addEventListener(
-    "click",
-    () => {
-
-        if (timerRunning) {
-
-            clearInterval(timerInterval);
-
-            timerRunning = false;
-
-            startTimerButton.textContent =
-                "START";
-
-            return;
-        }
-
-
-        timerRunning = true;
-
-        startTimerButton.textContent =
-            "PAUSE";
-
-
-        timerInterval = setInterval(
-            () => {
-
-                timerSeconds--;
-
-                updateTimerDisplay();
-
-
-                if (timerSeconds <= 0) {
-
-                    clearInterval(timerInterval);
-
-                    timerRunning = false;
-
-                    startTimerButton.textContent =
-                        "START";
-
-                    playTimerSound();
-
-                    timerSeconds =
-                        selectedMinutes * 60;
-
-                    updateTimerDisplay();
-                }
-
-            },
-            1000
-        );
-    }
-);
-
-
-// RESET
-
-resetTimerButton.addEventListener(
-    "click",
-    () => {
-
-        clearInterval(timerInterval);
-
-        timerRunning = false;
-
-        timerSeconds =
-            selectedMinutes * 60;
-
-        startTimerButton.textContent =
-            "START";
-
-        updateTimerDisplay();
-    }
-);
-
-// --------------------
-// TIMER SOUND
-// --------------------
-
-function playTimerSound() {
-
-    const AudioContext =
-        window.AudioContext ||
-        window.webkitAudioContext;
-
-
-    if (!AudioContext) {
-        return;
-    }
-
-
-    const audioContext =
-        new AudioContext();
-
-
-    function beep(startTime) {
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.value = 880;
-
-
-        gain.gain.setValueAtTime(
-            0.0001,
-            startTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.15,
-            startTime + 0.02
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.0001,
-            startTime + 0.35
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(
-            audioContext.destination
-        );
-
-
-        oscillator.start(startTime);
-
-        oscillator.stop(
-            startTime + 0.35
-        );
-    }
-
-
-    const now =
-        audioContext.currentTime;
-
-
-    beep(now);
-    beep(now + 0.5);
-    beep(now + 1.0);
-}
-// --------------------
 // QUOTE
 // --------------------
 
@@ -679,5 +443,74 @@ function updateQuote() {
         formatDate(new Date());
 }
 
-
 updateQuote();
+
+// --------------------
+// DAILY PROBLEM
+// --------------------
+
+function getProblemIndex() {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const difference = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(difference / oneDay);
+
+    return dayOfYear % problems.length;
+}
+
+function updateProblem() {
+    const problem = problems[getProblemIndex()];
+
+    document.getElementById("problemCategory").textContent =
+        problem.category;
+
+    document.getElementById("problemQuestion").textContent =
+        problem.question;
+
+    document.getElementById("problemAnswer").textContent =
+        "答え： " + problem.answer;
+
+    document.getElementById("problemSolution").textContent =
+        problem.solution;
+
+    document.getElementById("problemDate").textContent =
+        formatDate(new Date());
+
+    document.getElementById("problemAnswer").style.display = "none";
+    document.getElementById("problemSolution").style.display = "none";
+
+    document.getElementById("answerToggle").textContent =
+        "SHOW ANSWER";
+
+    document.getElementById("solutionToggle").textContent =
+        "SHOW SOLUTION";
+}
+
+document.getElementById("answerToggle").addEventListener("click", () => {
+    const answer = document.getElementById("problemAnswer");
+    const button = document.getElementById("answerToggle");
+
+    if (answer.style.display === "none") {
+        answer.style.display = "block";
+        button.textContent = "HIDE ANSWER";
+    } else {
+        answer.style.display = "none";
+        button.textContent = "SHOW ANSWER";
+    }
+});
+
+document.getElementById("solutionToggle").addEventListener("click", () => {
+    const solution = document.getElementById("problemSolution");
+    const button = document.getElementById("solutionToggle");
+
+    if (solution.style.display === "none") {
+        solution.style.display = "block";
+        button.textContent = "HIDE SOLUTION";
+    } else {
+        solution.style.display = "none";
+        button.textContent = "SHOW SOLUTION";
+    }
+});
+
+updateProblem();

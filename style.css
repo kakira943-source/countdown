@@ -447,144 +447,125 @@ h1 {
 }
 
 /* --------------------
-   TIMER
+   DAILY PROBLEM
 -------------------- */
 
-.timer {
+.problem {
     padding-top: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-
-.timer-header {
+.problem-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-
     margin-top: 35px;
+    margin-bottom: 45px;
 }
 
-
-.timer-header h2 {
-    font-size: 28px;
+.problem-header h2 {
+    font-size: 26px;
     font-weight: 400;
-
     letter-spacing: -0.04em;
 }
 
-
-.timer-header span {
+.problem-header span {
     color: var(--muted);
-
     font-family: "Space Mono", monospace;
-
     font-size: 10px;
+}
 
+.problem-category {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+.problem-question {
+    max-width: 800px;
+    font-size: 16px;
+    line-height: 2;
+    white-space: pre-wrap;
+}
+
+.problem-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.problem-button {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    padding: 10px 18px;
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
     letter-spacing: 0.08em;
-}
-
-
-#timerDisplay {
-    margin-top: 35px;
-
-    font-family: "Space Mono", monospace;
-
-    font-size: clamp(70px, 14vw, 140px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -0.08em;
-}
-
-
-.timer-buttons {
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-
-.timer-buttons button {
-    border: 1px solid var(--line);
-
-    background: transparent;
-    color: var(--text);
-
-    padding: 10px 20px;
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 0.1em;
-
     cursor: pointer;
-
     transition: 0.2s;
 }
 
-
-.timer-buttons button:hover {
+.problem-button:hover {
     border-color: var(--text);
-
     background: var(--text);
     color: var(--background);
 }
-.diary-note {
-    margin-top: 10px;
 
-    color: #555;
-
-    font-size: 10px;
-    line-height: 1.7;
+.problem-answer,
+.problem-solution {
+    max-width: 800px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    line-height: 2;
+    white-space: pre-wrap;
 }
 
-
-/* TIMER OPTIONS */
-
-.timer-options {
-    display: flex;
-
-    gap: 8px;
-
-    margin-top: 35px;
-}
-
-
-.timer-option {
-    border: 1px solid var(--line);
-
-    background: transparent;
-    color: var(--muted);
-
-    width: 45px;
-    height: 32px;
-
-    font-family: "Space Mono", monospace;
-
-    font-size: 9px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-
-.timer-option:hover {
-    border-color: #666;
+.problem-answer {
     color: var(--text);
 }
 
-
-.timer-option.active {
-    border-color: var(--text);
-
-    background: var(--text);
-    color: var(--background);
+.problem-solution {
+    color: #999;
 }
+
+@media (max-width: 650px) {
+    .problem {
+        max-width: none;
+    }
+
+    .problem-header {
+        margin-bottom: 35px;
+    }
+
+    .problem-header h2 {
+        font-size: 24px;
+    }
+
+    .problem-question {
+        font-size: 15px;
+    }
+
+    .problem-actions {
+        gap: 8px;
+    }
+
+    .problem-button {
+        padding: 10px 12px;
+        font-size: 8px;
+    }
+
+    .problem-answer,
+    .problem-solution {
+        font-size: 13px;
+    }
+}
+
 /* --------------------
    QUOTE
 -------------------- */
