@@ -278,4 +278,260 @@ const quotes = [
         ja: "顔を上げるな。結果に騒がせろ。",
         author: "Unknown"
     },
+    // 9/17追加
+    {
+        en: "The future is not waiting. It is being calculated.",
+        ja: "未来は待っているんじゃない。計算され、積み上げられている。",
+        author: "THE OBSERVER"
+    },
+    {
+        en: "Discipline is what remains when motivation has left the room.",
+        ja: "モチベーションが部屋を出ていったあとに残るもの。それが規律だ。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "You do not need a sign. You need another hour.",
+        ja: "サインなんて必要ない。あと一時間があればいい。",
+        author: "00:47"
+    },
+    {
+        en: "Some nights are not meant for sleep. They are meant for becoming.",
+        ja: "眠るためではなく、何者かになるためにある夜もある。",
+        author: "NIGHT SHIFT"
+    },
+    {
+        en: "The distance between you and the answer is made of smaller questions.",
+        ja: "自分と答えの距離は、小さな問いの積み重ねでできている。",
+        author: "THE MATHEMATICIAN"
+    },
+    {
+        en: "A quiet mind can still wage a very loud war.",
+        ja: "静かな心の中でも、ひどく騒がしい戦争は起きている。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "Do not confuse a slow process with a dead one.",
+        ja: "遅い過程を、死んだものと勘違いするな。",
+        author: "SYSTEM LOG"
+    },
+    {
+        en: "Every difficult problem begins by refusing to look difficult.",
+        ja: "難しい問題は、難しそうに見つめることをやめたときに始まる。",
+        author: "THE BLACKBOARD"
+    },
+    {
+        en: "You are allowed to be tired. You are not required to disappear.",
+        ja: "疲れてもいい。消えてしまう必要はない。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The clock does not judge you. It simply keeps moving.",
+        ja: "時計はお前を裁かない。ただ、動き続ける。",
+        author: "03:12"
+    },
+    {
+        en: "There is no dramatic moment when a person becomes stronger. There is only repetition.",
+        ja: "人が強くなる劇的な瞬間なんてない。ただ反復があるだけだ。",
+        author: "THE REPETITION"
+    },
+    {
+        en: "Some answers arrive only after the question has changed you.",
+        ja: "問いが自分を変えたあとでしか、辿り着けない答えがある。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The world rewards results. Your work must survive before the world notices.",
+        ja: "世界が報いるのは結果だ。世界に気づかれる前に、仕事を生き残らせろ。",
+        author: "NIGHT ENGINEER"
+    },
+    {
+        en: "A single page can be a small rebellion against an entire day.",
+        ja: "一枚のページは、一日全部に対する小さな反逆になり得る。",
+        author: "PAPER / 01"
+    },
+    {
+        en: "Do not wait until you feel ready. Readiness is often a story told afterward.",
+        ja: "準備ができるまで待つな。準備ができていたという物語は、たいてい後から作られる。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The answer was never hiding. Your eyes were still learning how to see it.",
+        ja: "答えは隠れていたんじゃない。目がそれを見る方法を学んでいる途中だった。",
+        author: "THE LENS"
+    },
+    {
+        en: "You cannot negotiate with time. You can only decide what to give it.",
+        ja: "時間とは交渉できない。何を捧げるかを決めることしかできない。",
+        author: "00:00"
+    },
+    {
+        en: "The sharpest weapon in the room may be the person who keeps taking notes.",
+        ja: "その部屋で最も鋭い武器は、ノートを取り続ける人間かもしれない。",
+        author: "THE LAST DESK"
+    },
+    {
+        en: "A failed attempt is still evidence. Use it.",
+        ja: "失敗した試みも証拠だ。使え。",
+        author: "LABORATORY NOTE"
+    },
+    {
+        en: "The night does not make you special. What you do inside it might.",
+        ja: "夜が君を特別にするわけじゃない。その中で何をするかが、そうするのかもしれない。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "There is elegance in solving what once looked impossible.",
+        ja: "かつて不可能に見えたものを解くことには、優雅さがある。",
+        author: "THE SOLVER"
+    },
+    {
+        en: "Do not worship the goal. Study the machinery that reaches it.",
+        ja: "目標を崇拝するな。そこへ到達する仕組みを研究しろ。",
+        author: "SYSTEM DESIGN"
+    },
+    {
+        en: "Your limits are often old conclusions written in pencil.",
+        ja: "限界とは、鉛筆で書かれた古い結論であることが多い。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The world is noisy. Build something precise.",
+        ja: "世界は騒がしい。だから、精密なものを作れ。",
+        author: "THE ENGINEER"
+    },
+    {
+        en: "You do not have to conquer the mountain tonight. Find the next foothold.",
+        ja: "今夜、山を征服する必要はない。次の足場を見つけろ。",
+        author: "NIGHT CLIMBER"
+    },
+    {
+        en: "A problem is not an enemy. It is a machine with a hidden entrance.",
+        ja: "問題は敵ではない。入口が隠された機械だ。",
+        author: "THE MECHANIC"
+    },
+    {
+        en: "The most dangerous sentence is: I already know enough.",
+        ja: "最も危険な言葉は、「もう十分知っている」だ。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The result is temporary. The ability to reach it again is yours.",
+        ja: "結果は一時的なものだ。そこへ再び辿り着く力は、自分のものになる。",
+        author: "THE PRACTICE"
+    },
+    {
+        en: "Some progress is invisible because it is happening beneath the surface.",
+        ja: "進歩の中には、表面下で起きているために見えないものがある。",
+        author: "SUBSURFACE"
+    },
+    {
+        en: "Make your doubts precise. Vague fear cannot be solved.",
+        ja: "疑いを正確にしろ。曖昧な恐怖は解けない。",
+        author: "THE ANALYST"
+    },
+    {
+        en: "The person you become is hidden inside the things you repeat.",
+        ja: "君が何者になるかは、繰り返している行動の中に隠れている。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "Not every day needs to be victorious. It needs to leave a trace.",
+        ja: "すべての日が勝利である必要はない。痕跡を残せばいい。",
+        author: "LOG ENTRY"
+    },
+    {
+        en: "When the path disappears, reduce the scale of your next step.",
+        ja: "道が見えなくなったら、次の一歩の大きさを小さくしろ。",
+        author: "THE CARTOGRAPHER"
+    },
+    {
+        en: "The cleanest solution is often hidden beneath the unnecessary work.",
+        ja: "最も美しい解法は、余計な仕事の下に隠れていることが多い。",
+        author: "THE PROOF"
+    },
+    {
+        en: "You are not behind. You are inside the process.",
+        ja: "遅れているんじゃない。今まさに過程の中にいる。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "A mind becomes dangerous when it learns to remain calm around difficulty.",
+        ja: "困難の前で冷静でいられるようになったとき、思考は強力になる。",
+        author: "THE OBSERVER"
+    },
+    {
+        en: "The blank page is not empty. It is waiting for a decision.",
+        ja: "白紙は空っぽではない。決断を待っている。",
+        author: "PAPER / 00"
+    },
+    {
+        en: "The answer may be simple. Reaching it is where the education lives.",
+        ja: "答えは簡単かもしれない。そこへ至る過程にこそ、学びがある。",
+        author: "THE TEACHER"
+    },
+    {
+        en: "Do not measure the night by how long you stayed awake. Measure it by what became clearer.",
+        ja: "夜を起きていた長さで測るな。何が明確になったかで測れ。",
+        author: "02:26"
+    },
+    {
+        en: "Every system reveals its character under pressure.",
+        ja: "あらゆるシステムは、圧力を受けたときにその本性を現す。",
+        author: "SYSTEM THEORY"
+    },
+    {
+        en: "You can be uncertain and still move with precision.",
+        ja: "不確かでも、正確に進むことはできる。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The work does not become meaningful because it is easy. It becomes meaningful because you return to it.",
+        ja: "仕事が意味を持つのは簡単だからではない。何度もそこへ戻るからだ。",
+        author: "THE RETURN"
+    },
+    {
+        en: "A difficult question is sometimes a door disguised as a wall.",
+        ja: "難しい問いは、ときに壁に偽装された扉だ。",
+        author: "THE DOOR"
+    },
+    {
+        en: "The future belongs to those who can remain curious after being wrong.",
+        ja: "未来は、間違えたあとも好奇心を失わない人間のものだ。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "There is no shortcut through understanding. Only a shorter distance between attempts.",
+        ja: "理解への近道はない。あるのは、試行と試行の間隔を短くすることだけだ。",
+        author: "THE ITERATION"
+    },
+    {
+        en: "Build a mind that can sit alone with an unfinished problem.",
+        ja: "未完成の問題と二人きりでいられる思考を作れ。",
+        author: "THE LAST QUESTION"
+    },
+    {
+        en: "The quietest victories are the ones that change your next attempt.",
+        ja: "最も静かな勝利とは、次の挑戦を変えるものだ。",
+        author: "UNKNOWN"
+    },
+    {
+        en: "The equation does not care how badly you want the answer. Learn to respect it.",
+        ja: "方程式は、どれほど答えを望んでいるかなど気にしない。それを尊重することを学べ。",
+        author: "THE EQUATION"
+    },
+    {
+        en: "One more attempt is not always courage. Sometimes it is simply good engineering.",
+        ja: "もう一度試すことは、必ずしも勇気ではない。時には、単に優れた設計思想だ。",
+        author: "THE ENGINEER"
+    },
+    {
+        en: "Your attention is a finite resource. Spend it like it matters.",
+        ja: "集中力は有限の資源だ。価値があるものに使え。",
+        author: "RESOURCE / 01"
+    },
+    {
+        en: "The day ends. The accumulated structure remains.",
+        ja: "一日は終わる。積み上げられた構造は残る。",
+        author: "00:00"
+    }
 ];
