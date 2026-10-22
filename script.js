@@ -351,36 +351,7 @@ saveDiaryButton.addEventListener(
 // --------------------
 
 
-// 日付は端末の現地時間を使い、開いたままでも午前0時に切り替える。
-let activeThemeDate = "";
-
-function updateDailyTheme() {
-    const now = new Date();
-    const dateKey = formatDate(now);
-    if (dateKey === activeThemeDate) return;
-
-    const palettes = [
-        ["#ff378f", "#32eaff", "#ffe169"],
-        ["#a77bff", "#69ffcb", "#ffcb58"],
-        ["#ff624a", "#ffe66b", "#63dcff"],
-        ["#39e6ff", "#ff77d9", "#baff65"],
-        ["#ffe16a", "#ff579f", "#9bafff"],
-        ["#6dffb9", "#8f9dff", "#ffbc70"],
-        ["#ff8cdd", "#79caff", "#fff08a"]
-    ];
-    const day = Math.floor(Date.UTC(
-        now.getFullYear(), now.getMonth(), now.getDate()
-    ) / 86400000);
-    const palette = palettes[day % palettes.length];
-    ["--accent", "--accent-alt", "--gold"].forEach((name, index) => {
-        document.documentElement.style.setProperty(name, palette[index]);
-    });
-    activeThemeDate = dateKey;
-}
-
 function update() {
-
-    updateDailyTheme();
 
     updateClock();
 
