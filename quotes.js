@@ -266,104 +266,203 @@ const quotes = [
     ja: "安楽は、ゆっくりした死だ。",
     author: "Capybara"
 },
+// 10/22追加分 100M参考
 {
-    en: "Your potential means nothing.",
-    ja: "可能性に価値はない。",
-    author: "Pelican"
-},
-{
-    en: "Nobody remembers almost.",
-    ja: "「あと少し」は誰も覚えていない。",
-    author: "Second Horse"
-},
-{
-    en: "Excuses leave no scars.",
-    ja: "言い訳では傷ひとつ残らない。",
-    author: "Walrus"
-},
-{
-    en: "Results erase opinions.",
-    ja: "結果は雑音を消す。",
-    author: "Orca"
-},
-{
-    en: "Fear is not a veto.",
-    ja: "恐怖に拒否権はない。",
-    author: "Honey Badger"
-},
-{
-    en: "Finish what fear started.",
-    ja: "恐怖が始めたものを、お前が終わらせろ。",
-    author: "Black Mamba"
-},
-{
-    en: "Make failure remember you.",
-    ja: "失敗のほうに、お前を覚えさせろ。",
-    author: "Moose"
-},
-{
-    en: "You haven't earned tired.",
-    ja: "まだ疲れる資格はない。",
-    author: "Albatross"
-},
-{
-    en: "Outgrow your old name.",
-    ja: "昔のお前を置き去りにしろ。",
-    author: "Lobster"
-},
-{
-    en: "Make yesterday obsolete.",
-    ja: "昨日の自分を型落ちにしろ。",
-    author: "Horseshoe Crab"
-},
-{
-    en: "Become inevitable.",
-    ja: "必然になれ。",
-    author: "Blue Whale"
-},
-{
-    en: "No rescue is coming.",
-    ja: "救援は来ない。",
-    author: "Mountain Goat"
-},
-{
-    en: "Prove them irrelevant.",
-    ja: "そいつらの評価ごと無意味にしろ。",
-    author: "Silverback"
-},
-{
-    en: "Leave no room for luck.",
-    ja: "運の入り込む余地を潰せ。",
-    author: "Centipede"
-},
-{
-    en: "Don't chase. Become.",
-    ja: "追うな。なれ。",
-    author: "Crocodile"
-},
-{
-    en: "Again. Until it breaks.",
-    ja: "もう一度。壊れるまで。",
-    author: "Woodpecker"
-},
-{
-    en: "Weakness keeps receipts.",
-    ja: "弱さは、全部覚えている。",
-    author: "Elephant"
-},
-{
-    en: "Your move.",
-    ja: "次はお前の番だ。",
-    author: "Mantis Shrimp"
-},
-{
-    en: "Still watching?",
-    ja: "まだ見てるだけか？",
-    author: "Barn Owl"
-},
-{
-    en: "Time didn't betray you.",
-    ja: "時間はお前を裏切っていない。",
-    author: "Greenland Shark"
-},
+        en: "Most problems disappear if you're faster than everyone else for just 100 meters.",
+        ja: "大抵の問題は、100メートルだけ誰よりも速ければ全部解決する。",
+        author: "Man Who Ate the Finish Line"
+    },
+    {
+        en: "For the next ten seconds, all I need are two legs. That's enough to challenge this world.",
+        ja: "今から10秒間、必要なのは脚2本。それだけでこの世界に挑む。",
+        author: "Unidentified Object at 43 km/h"
+    },
+    {
+        en: "When I do something harder than reality, reality starts to blur.",
+        ja: "現実より辛いことをすると、現実がぼやける。",
+        author: "Former Reality Employee"
+    },
+    {
+        en: "Even I can seize glory, if only for a moment.",
+        ja: "僕でも一瞬なら栄光を掴める。",
+        author: "One-Time World Champion"
+    },
+    {
+        en: "Being number one for a moment means nothing. If you can't keep it up, it isn't ability.",
+        ja: "一瞬だけ1位になっても意味はない。継続できなきゃ実力じゃない。",
+        author: "Second Place's Father"
+    },
+    {
+        en: "Think less. Underestimate the world. Stop protecting yourself. Even when you win, keep attacking.",
+        ja: "浅く考えろ。世の中舐めろ。保身に走るな。勝っても攻めろ。",
+        author: "God's Worst Employee"
+    },
+    {
+        en: "Anxiety isn't something to be dealt with. Life is always full of things you might lose. That's where the thrill of being alive comes from.",
+        ja: "不安は対処すべきではない。人生は常に失う可能性に満ちている。そこに命の醍醐味がある。",
+        author: "Man Holding All the Wrong Cards"
+    },
+    {
+        en: "I am a living thing. I will die. And I will never be born again. That's reason enough.",
+        ja: "私は生物だ。死ぬ。そして二度と生まれてこない。理由はそれだけだ。",
+        author: "Temporary Organism"
+    },
+
+
+    // ===== ORIGINAL =====
+
+    {
+        en: "Don't wait for confidence. Move before your fear can vote.",
+        ja: "自信を待つな。恐怖に決定権を与える前に動け。",
+        author: "Man Banned from Democracy"
+    },
+    {
+        en: "Don't protect your future. Risk becoming someone who deserves one.",
+        ja: "未来を守るな。未来に値する人間になるために賭けろ。",
+        author: "Tomorrow's Previous Owner"
+    },
+    {
+        en: "If the odds are terrible, stop asking them for permission.",
+        ja: "勝ち目がないなら、勝ち目に許可を求めるのをやめろ。",
+        author: "Casino Employee of the Month"
+    },
+    {
+        en: "You don't need less fear. You need something worth being afraid for.",
+        ja: "恐怖を減らす必要はない。恐怖を抱えてでも欲しいものを持て。",
+        author: "Man Who Scared the Devil"
+    },
+    {
+        en: "Stop trying to feel ready. Readiness is what cowards call permission.",
+        ja: "準備が整うのを待つな。覚悟のない奴ほど、許可を待つ。",
+        author: "Unauthorized Personnel"
+    },
+    {
+        en: "If failure can destroy you, let it destroy the version of you that was afraid to fail.",
+        ja: "失敗で壊れるなら、失敗を恐れていた自分ごと壊してしまえ。",
+        author: "Human Version 2.0"
+    },
+    {
+        en: "Don't survive the pressure. Become the reason it exists.",
+        ja: "重圧に耐えるな。お前が重圧の原因になれ。",
+        author: "Atmospheric Incident"
+    },
+    {
+        en: "Winning once is luck. Winning until they hate you is proof.",
+        ja: "一度の勝利なら運でいい。嫌われるほど勝ち続ければ、それは実力だ。",
+        author: "Public Enemy No. 2"
+    },
+    {
+        en: "The world is not too hard. You are still negotiating with it.",
+        ja: "世界が厳しいんじゃない。まだお前が世界と交渉しているだけだ。",
+        author: "Earth's Hostage Negotiator"
+    },
+    {
+        en: "Your limits are allowed to scream. They are not allowed to decide.",
+        ja: "限界には叫ばせておけ。決めさせるな。",
+        author: "Emergency Contact: None"
+    },
+    {
+        en: "Stop asking whether you can win. Make losing too expensive.",
+        ja: "勝てるかを考えるな。負けられないところまで賭けろ。",
+        author: "Man with One Chip Left"
+    },
+    {
+        en: "A safe life is still a life you spent.",
+        ja: "安全に生きても、人生は減る。",
+        author: "Immortality Trial Participant #6"
+    },
+    {
+        en: "You are going to lose everything eventually. Spend yourself on something worthy.",
+        ja: "どうせ最後には全部失う。なら、惜しむ価値のないものに人生を使うな。",
+        author: "Former Owner of Everything"
+    },
+    {
+        en: "Reality is not an authority. It is the current score.",
+        ja: "現実は権威じゃない。ただの途中経過だ。",
+        author: "Reality's Former Supervisor"
+    },
+    {
+        en: "Death is guaranteed. Defeat isn't.",
+        ja: "死ぬことは決まっている。負けることまでは決まっていない。",
+        author: "Death's Least Favorite Customer"
+    },
+
+
+    // ===== MORE =====
+
+    {
+        en: "If reality says no, make it repeat itself.",
+        ja: "現実に無理だと言われたら、もう一度言わせろ。",
+        author: "Man Arguing with Gravity"
+    },
+    {
+        en: "You were born without permission. Continue accordingly.",
+        ja: "お前は許可を得て生まれてきたわけじゃない。そのまま行け。",
+        author: "Unauthorized Birth"
+    },
+    {
+        en: "The worst possible outcome is still an outcome. Move.",
+        ja: "最悪の結末だって結末ではある。動け。",
+        author: "Former Safety Inspector"
+    },
+    {
+        en: "Maybe the wall is not there to stop you. Maybe nobody expected you to hit it this hard.",
+        ja: "壁はお前を止めるためにあるんじゃない。ここまで本気でぶつかる奴を想定してなかっただけかもしれない。",
+        author: "Building Insurance"
+    },
+    {
+        en: "There is no correct way to spend a life that expires.",
+        ja: "期限のある人生に、正しい使い方なんてない。",
+        author: "Expired Human"
+    },
+    {
+        en: "If you must lose your mind, lose it in a useful direction.",
+        ja: "どうせ狂うなら、役に立つ方向に狂え。",
+        author: "Psychiatrist from Mars"
+    },
+    {
+        en: "Your life is not short. It is non-refundable.",
+        ja: "人生は短いんじゃない。返金不可なんだ。",
+        author: "God's Customer Support"
+    },
+    {
+        en: "The universe has survived worse decisions than yours.",
+        ja: "宇宙は、お前よりひどい判断を何度も生き延びている。",
+        author: "The Big Bang's Lawyer"
+    },
+    {
+        en: "You are not here forever. Act suspiciously.",
+        ja: "永遠にいるわけじゃない。少しくらい怪しく生きろ。",
+        author: "Unidentified Male, Earth"
+    },
+    {
+        en: "If everything collapses, congratulations. You found the load-bearing lie.",
+        ja: "全部崩れたなら、おめでとう。何がお前を支えていた嘘だったのか分かった。",
+        author: "Architect of Nothing"
+    },
+    {
+        en: "One day your name will be said for the last time. Give them something difficult to pronounce.",
+        ja: "いつかお前の名前は最後に呼ばれる。せめて言いにくい人生にしろ。",
+        author: "Man with Seventeen Middle Names"
+    },
+    {
+        en: "The future is coming whether you deserve it or not.",
+        ja: "未来は、お前にその資格があろうとなかろうと来る。",
+        author: "Tomorrow's Debt Collector"
+    },
+    {
+        en: "You have already survived being born. The rest is mostly paperwork.",
+        ja: "お前はもう誕生を生き延びた。残りはだいたい事務処理だ。",
+        author: "Department of Human Affairs"
+    },
+    {
+        en: "Do not die with unused arrogance.",
+        ja: "使わなかった傲慢さを残して死ぬな。",
+        author: "Humble Man's Evil Twin"
+    },
+    {
+        en: "If you become completely unreasonable, reality may eventually file a complaint.",
+        ja: "徹底的に無茶を続ければ、そのうち現実のほうから苦情が来る。",
+        author: "Reality's Legal Department"
+    }
 ];
