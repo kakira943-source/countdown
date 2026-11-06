@@ -15,6 +15,237 @@ const quotes = [
         author: "Yamamoto Yosinobu",
     },
     {
+        en: "Your permission was never required.",
+        ja: "お前の許可など、最初から必要ない。",
+        author: "unknown",
+    },
+    {
+        en: "Even silence knows its place.",
+        ja: "沈黙でさえ、自分の立場をわきまえている。",
+        author: "unknown",
+    },
+    {
+        en: "I don't negotiate with gravity.",
+        ja: "重力と交渉するつもりはない。",
+        author: "unknown",
+    },
+    {
+        en: "The outcome has already surrendered.",
+        ja: "結果はすでに降伏している。",
+        author: "unknown",
+    },
+    {
+        en: "Your future has been discontinued.",
+        ja: "お前の未来は生産終了だ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't recognize the concept of almost.",
+        ja: "惜しいという概念を認めない。",
+        author: "unknown",
+    },
+    {
+        en: "Tomorrow is not authorized.",
+        ja: "明日は許可されていない。",
+        author: "unknown",
+    },
+    {
+        en: "Fear is just delayed understanding.",
+        ja: "恐怖とは、理解の遅延にすぎない。",
+        author: "unknown",
+    },
+    {
+        en: "I have already dismissed the horizon.",
+        ja: "地平線はすでに解雇した。",
+        author: "unknown",
+    },
+    {
+        en: "The rules have lost their privileges.",
+        ja: "ルールから特権を剥奪した。",
+        author: "unknown",
+    },
+    {
+        en: "Your confidence is an administrative error.",
+        ja: "お前の自信は事務処理上のミスだ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't wait for reality.",
+        ja: "現実を待つつもりはない。",
+        author: "unknown",
+    },
+    {
+        en: "The sky has been warned.",
+        ja: "空にはすでに警告してある。",
+        author: "unknown",
+    },
+    {
+        en: "I consider resistance a formatting issue.",
+        ja: "抵抗は書式の問題として処理する。",
+        author: "unknown",
+    },
+    {
+        en: "Your existence is under review.",
+        ja: "お前の存在は現在審査中だ。",
+        author: "unknown",
+    },
+    {
+        en: "The universe owes me an explanation.",
+        ja: "宇宙には説明責任がある。",
+        author: "unknown",
+    },
+    {
+        en: "I have no interest in your survival strategy.",
+        ja: "お前の生存戦略には興味がない。",
+        author: "unknown",
+    },
+    {
+        en: "Even destiny reports to me.",
+        ja: "運命でさえ、俺に報告する。",
+        author: "unknown",
+    },
+    {
+        en: "This is not a competition. It's an inspection.",
+        ja: "これは勝負ではない。検査だ。",
+        author: "unknown",
+    },
+    {
+        en: "Your defeat is a routine procedure.",
+        ja: "お前の敗北は通常業務だ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't acknowledge second place.",
+        ja: "二位の存在を認めない。",
+        author: "unknown",
+    },
+    {
+        en: "The clock is operating without my consent.",
+        ja: "時計が俺の同意なく動いている。",
+        author: "unknown",
+    },
+    {
+        en: "Your last mistake was being correct.",
+        ja: "お前の最後の間違いは、正しかったことだ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't need evidence. I am the conclusion.",
+        ja: "証拠は必要ない。俺が結論だ。",
+        author: "unknown",
+    },
+    {
+        en: "The impossible has been reassigned.",
+        ja: "不可能は別の部署に異動させた。",
+        author: "unknown",
+    },
+    {
+        en: "I have rejected the concept of distance.",
+        ja: "距離という概念を却下した。",
+        author: "unknown",
+    },
+    {
+        en: "Your objections have expired.",
+        ja: "お前の異議申し立ては期限切れだ。",
+        author: "unknown",
+    },
+    {
+        en: "Even the darkness needs my approval.",
+        ja: "闇でさえ俺の承認が必要だ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't chase victory. I collect it.",
+        ja: "勝利は追わない。回収する。",
+        author: "unknown",
+    },
+    {
+        en: "The situation has been terminated.",
+        ja: "状況は終了させた。",
+        author: "unknown",
+    },
+    {
+        en: "Your logic has no jurisdiction here.",
+        ja: "ここにお前の論理の管轄権はない。",
+        author: "unknown",
+    },
+    {
+        en: "I don't remember authorizing your hope.",
+        ja: "お前の希望を許可した覚えはない。",
+        author: "unknown",
+    },
+    {
+        en: "The sun is late again.",
+        ja: "太陽がまた遅刻している。",
+        author: "unknown",
+    },
+    {
+        en: "Your limits are not my concern.",
+        ja: "お前の限界など、俺の知ったことではない。",
+        author: "unknown",
+    },
+    {
+        en: "I have nothing to prove to mathematics.",
+        ja: "数学に証明することなど何もない。",
+        author: "unknown",
+    },
+    {
+        en: "The answer has been removed.",
+        ja: "答えは撤去した。",
+        author: "unknown",
+    },
+    {
+        en: "Your courage is a temporary malfunction.",
+        ja: "お前の勇気は一時的な故障だ。",
+        author: "unknown",
+    },
+    {
+        en: "I don't participate in uncertainty.",
+        ja: "不確実性には参加しない。",
+        author: "unknown",
+    },
+    {
+        en: "The world is behind schedule.",
+        ja: "世界は予定より遅れている。",
+        author: "unknown",
+    },
+    {
+        en: "Your opinion has been archived.",
+        ja: "お前の意見はアーカイブした。",
+        author: "unknown",
+    },
+    {
+        en: "I have already replaced the inevitable.",
+        ja: "必然はすでに交換した。",
+        author: "unknown",
+    },
+    {
+        en: "There will be no second announcement.",
+        ja: "二度目の通告はない。",
+        author: "unknown",
+    },
+    {
+        en: "The truth is not cleared for release.",
+        ja: "真実の公開許可は下りていない。",
+        author: "unknown",
+    },
+    {
+        en: "Your expectations have been confiscated.",
+        ja: "お前の期待は没収した。",
+        author: "unknown",
+    },
+    {
+        en: "I don't take orders from probability.",
+        ja: "確率の命令には従わない。",
+        author: "unknown",
+    },
+    {
+        en: "The past has been found incompetent.",
+        ja: "過去は無能と判断された。",
+        author: "unknown",
+    },
+
+    {
         en: "Losing is not an option.",
         ja: "負けるという選択肢はない。",
         author: "Yamamoto Yosinobu",
