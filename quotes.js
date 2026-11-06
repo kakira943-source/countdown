@@ -141,21 +141,6 @@ const quotes = [
         author: "Unknown"
     },
     {
-        en: "You don't rise to the level of your goals. You fall to the level of your systems.",
-        ja: "人は目標の高さまで上がるのではない。仕組みの水準まで落ちる。",
-        author: "James Clear"
-    },
-    {
-        en: "Hard days are not interruptions. They are part of the process.",
-        ja: "辛い日は邪魔ではない。それもまた過程の一部だ。",
-        author: "Unknown"
-    },
-    {
-        en: "Nobody is coming to save you. That is the good news.",
-        ja: "誰もお前を救いに来ない。だからこそ、それは朗報だ。",
-        author: "Unknown"
-    },
-    {
         en: "Outwork the version of yourself that made excuses yesterday.",
         ja: "昨日言い訳をした自分を、今日の自分が超えていけ。",
         author: "Unknown"
@@ -168,11 +153,6 @@ const quotes = [
     {
         en: "If nobody believes in you, make your results impossible to ignore.",
         ja: "誰もお前を信じないなら、無視できない結果を出せ。",
-        author: "Unknown"
-    },
-    {
-        en: "You have survived every bad day you thought would destroy you.",
-        ja: "お前は、壊れると思っていたすべての最悪の日を生き抜いてきた。",
         author: "Unknown"
     },
     {
@@ -271,11 +251,6 @@ const quotes = [
         en: "Most problems disappear if you're faster than everyone else for just 100 meters.",
         ja: "大抵の問題は、100メートルだけ誰よりも速ければ全部解決する。",
         author: "Man Who Ate the Finish Line"
-    },
-    {
-        en: "For the next ten seconds, all I need are two legs. That's enough to challenge this world.",
-        ja: "今から10秒間、必要なのは脚2本。それだけでこの世界に挑む。",
-        author: "Unidentified Object at 43 km/h"
     },
     {
         en: "When I do something harder than reality, reality starts to blur.",
